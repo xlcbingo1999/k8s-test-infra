@@ -1,8 +1,14 @@
 # Cache Holodeck image
 FROM ghcr.io/nvidia/holodeck:v0.2.0 AS holodeck
 
+ENV GO111MODULE=on \
+    GOPROXY=https://goproxy.cn,direct
+
 # https://github.com/actions/runner/blob/main/images/Dockerfile
 FROM ghcr.io/actions/actions-runner:2.318.0 AS runner
+
+ENV GO111MODULE=on \
+    GOPROXY=https://goproxy.cn,direct
 
 USER root
 
